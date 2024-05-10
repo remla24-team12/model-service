@@ -1,0 +1,3 @@
+git+https://github.com/remla24-team12/lib-ml.git@v0.1.2#egg=lib-ml
+Flask==2.2.4
+flasgger==0.9.4
