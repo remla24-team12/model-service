@@ -7,6 +7,7 @@ name = "pypi"
 lib-ml = {ref = "v0.1.2", git = "git+https://github.com/remla24-team12/lib-ml.git"}
 flask = "==2.2.4"
 flasgger = "==0.9.4"
+flask_cors==4.0.1
 dvc = {extras = ["gdrive"], version = "==3.50.1"}
 numpy = "==1.26.0"
 tensorflow = "==2.16.1"
