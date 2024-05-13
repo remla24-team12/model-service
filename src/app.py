@@ -2,6 +2,7 @@ import os
 import json
 from flask import Flask, request
 from flasgger import Swagger
+from flask_cors import CORS
 import dvc.api
 import numpy as np
 from keras.models import load_model
@@ -9,6 +10,7 @@ from lib_ml import preprocessing
 
 app = Flask(__name__)
 swagger = Swagger(app)
+CORS(app)
 
 @app.route('/', methods=['POST'])
 def predict():
