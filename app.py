@@ -1,9 +1,11 @@
 from flask import Flask, request
 from flasgger import Swagger
+from flask_cors import CORS
 from lib_ml.preprocessing import process_data
 
 app = Flask(__name__)
 swagger = Swagger(app)
+CORS(app)
 
 @app.route('/', methods=['POST'])
 def predict():
@@ -34,9 +36,13 @@ def predict():
               example: Safe
     """
     data = request.get_json()
-    
+
     msg = data.get('msg', 'No message received')
     return {"result": msg + " " + process_data("testing the library")}
+
+@app.route('/test', methods=['GET'])
+def test():
+    return {"result": True}
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
