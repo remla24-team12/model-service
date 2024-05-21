@@ -18,6 +18,10 @@ RUN pipenv install --system --
 ENV SERVICE_ACCOUNT_JSON_FILE_PATH=/app/remla-team-12-2078257eb673.json
 ENV GOOGLE_APPLICATION_CREDENTIALS=/app/remla-team-12-2078257eb673.json
 
+ARG SECRET_FILE
+
+ENV GDRIVE_CREDENTIALS_DATA=$SECRET_FILE
+
 EXPOSE 5000
 
 # Command to run the application
