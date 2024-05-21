@@ -35,9 +35,12 @@ jobs:
         registry: ghcr.io
         username: ${{ github.actor }}
         password: ${{ secrets.REMLA_TOKEN }}
-
+    - name: Create secret file
+      run: echo "${{ secrets.SECRET_FILE }}" > remla-team-12-2078257eb673.json
     - name: Build and push
       uses: docker/build-push-action@v5
+      env:
+        SECRET_FILE: "${{ secrets.SECRET_FILE }}"
       with:
         context: .
         file: ./Dockerfile
