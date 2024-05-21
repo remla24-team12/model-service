@@ -14,6 +14,10 @@ RUN apt-get update && apt-get install -y git && pip install --no-cache-dir pipen
 # Install dependencies from Pipfile
 RUN pipenv install --system --
 
+# Set environment variables
+ENV SERVICE_ACCOUNT_JSON_FILE_PATH=/app/remla-team-12-2078257eb673.json
+ENV GOOGLE_APPLICATION_CREDENTIALS=/app/remla-team-12-2078257eb673.json
+
 EXPOSE 5000
 
 # Command to run the application
