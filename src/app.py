@@ -58,7 +58,6 @@ def predict():
 
 def fetch_model():
     """Fetch model and tokenizer from dvc registry"""
-    secrets = load_secrets()
 
     artifact = dvc.api.artifacts_show(
         'phishing-detection',
@@ -69,17 +68,12 @@ def fetch_model():
         url='https://github.com/remla24-team12/model-training.git',
         rev=artifact['rev'],
         gdrive_service_account_json_file_path='./remla-team-12-2078257eb673.json',
-        gdrive_client_id = secrets["CLIENT_ID"],
-        gdrive_client_secret = secrets["CLIENT_SECRET"],
+        gdrive_client_id = os.environ["CLIENT_ID"],
+        gdrive_client_secret = os.environ["CLIENT_SECRET"],
         gdrive_use_service_account = 'true'
     )
 
     fs.get_file(artifact['path'], os.path.join("model",os.path.basename(artifact['path'])))
-
-def load_secrets(filename='secrets.json'):
-    with open(filename, 'r') as file:
-        secrets = json.load(file)
-    return secrets
 
 if __name__ == "__main__":
     fetch_model()
