@@ -68,8 +68,6 @@ def fetch_model():
         url='https://github.com/remla24-team12/model-training.git',
         rev=artifact['rev'],
         gdrive_service_account_json_file_path='./remla-team-12-2078257eb673.json',
-        gdrive_client_id = os.environ["CLIENT_ID"],
-        gdrive_client_secret = os.environ["CLIENT_SECRET"],
         gdrive_use_service_account = 'true'
     )
 
