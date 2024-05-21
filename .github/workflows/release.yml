@@ -38,7 +38,7 @@ jobs:
         ls -a
         ls ./src/ -a
         jq . ./src/remla-team-12-2078257eb673.json
-        jq . ./src/secrets.json
+
         cat ./src/remla-team-12-2078257eb673.json
         cat ./src/secrets.json
       shell: bash
