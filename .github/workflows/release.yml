@@ -41,7 +41,7 @@ jobs:
         echo "{" > secrets.json
         echo "\"CLIENT_ID\": \"${{ secrets.CLIENT_ID }}\"," >> ./src/secrets.json
         echo "\"CLIENT_SECRET\": \"${{ secrets.CLIENT_SECRET }}\"" >> ./src/secrets.json
-        echo "}" >> secrets.json
+        echo "}" >> ./src/secrets.json
         echo "${{ secrets.SECRET_FILE }}" > ./src/remla-team-12-2078257eb673.json
       shell: bash
 
