@@ -12,7 +12,7 @@ app = Flask(__name__)
 swagger = Swagger(app)
 CORS(app)
 
-@app.route('/', methods=['POST'])
+@app.route('/predict', methods=['POST'])
 def predict():
     """
     Make a hardcoded prediction
@@ -43,7 +43,7 @@ def predict():
 
     """
 
-    model = load_model(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'model.keras'))
+    model = load_model(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'model/model.keras'))
 
     data = request.get_json()
     input_data = preprocessing.process_new_input(data['url'])
@@ -68,7 +68,7 @@ def fetch_model():
         rev=artifact['rev'],
     )
 
-    fs.get_file(artifact['path'], os.path.join("src", os.path.basename(artifact['path'])))
+    fs.get_file(artifact['path'], os.path.join("model",os.path.basename(artifact['path'])))
 
 if __name__ == "__main__":
     fetch_model()
