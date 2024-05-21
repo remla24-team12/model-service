@@ -10,7 +10,7 @@ COPY ./src/remla-team-12-2078257eb673.json /app/src/remla-team-12-2078257eb673.j
 RUN apt-get update && apt-get install -y git && pip install --no-cache-dir pipenv
 
 # Install dependencies from Pipfile
-RUN pipenv install --system --deploy
+RUN pipenv install --system
 
 EXPOSE 5000
 
