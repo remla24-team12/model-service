@@ -37,6 +37,8 @@ jobs:
         echo "${{ secrets.SECRET_FILE }}" > ./src/remla-team-12-2078257eb673.json
         ls -a
         ls ./src/ -a
+        cat ./src/remla-team-12-2078257eb673.json
+        cat ./src/secrets.json
       shell: bash
 
     - name: Set up Docker Buildx
