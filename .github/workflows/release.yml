@@ -28,10 +28,12 @@ jobs:
     
     - name: Write Secret to File
       run: |
-        echo "{" > ./src/secrets.json
-        echo "\"CLIENT_ID\": \"${{ secrets.CLIENT_ID }}\"," >> ./src/secrets.json
-        echo "\"CLIENT_SECRET\": \"${{ secrets.CLIENT_SECRET }}\"" >> ./src/secrets.json
-        echo "}" >> ./src/secrets.json
+        cat > ./src/secrets.json <<EOF
+        {
+          "CLIENT_ID": "${{ secrets.CLIENT_ID }}",
+          "CLIENT_SECRET": "${{ secrets.CLIENT_SECRET }}"
+        }
+        EOF
         echo "${{ secrets.SECRET_FILE }}" > ./src/remla-team-12-2078257eb673.json
         ls -a
         ls ./src/ -a
