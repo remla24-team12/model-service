@@ -3,10 +3,10 @@ name: Build and Push Docker Image
 on:
   push:
     branches:
-      - main
+      - small_fixes
   pull_request:
     branches:
-      - main
+      - small_fixes
 
 jobs:
   build-and-push:
