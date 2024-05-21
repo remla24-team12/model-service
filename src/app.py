@@ -7,6 +7,7 @@ import dvc.api
 import numpy as np
 from keras.models import load_model
 from lib_ml import preprocessing
+import json
 
 app = Flask(__name__)
 swagger = Swagger(app)
@@ -64,8 +65,10 @@ def fetch_model():
     )
 
     fs = dvc.api.DVCFileSystem(
-        'https://github.com/remla24-team12/model-training.git',
+        url='https://github.com/remla24-team12/model-training.git',
         rev=artifact['rev'],
+        gdrive_service_account_json_file_path='./remla-team-12-2078257eb673.json',
+        gdrive_use_service_account = 'true'
     )
 
     fs.get_file(artifact['path'], os.path.join("model",os.path.basename(artifact['path'])))
