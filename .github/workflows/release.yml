@@ -1,6 +1,10 @@
 name: Build and Push Docker Image
 
 on:
+  workflow_run:
+    workflows: ["Auto Versioning"]
+    types:
+      - completed
   push:
     branches:
       - main
@@ -15,6 +19,12 @@ jobs:
     steps:
     - name: Check out the code
       uses: actions/checkout@v3
+      with:
+        fetch-depth: 0 
+
+    - name: Get latest tag
+      id: get_version
+      run: echo "VERSION=$(git describe --tags `git rev-list --tags --max-count=1`)" >> $GITHUB_ENV
 
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v2
@@ -32,7 +42,9 @@ jobs:
         context: .
         file: ./Dockerfile
         push: true
-        tags: ghcr.io/${{ github.repository_owner }}/model-service:latest
+        tags: |
+          ghcr.io/${{ github.repository_owner }}/model-service:latest
+          ghcr.io/${{ github.repository_owner }}/model-service:${{ env.VERSION }}
 
     - name: Verify pushed image
       run: echo "Image pushed!"
