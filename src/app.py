@@ -67,7 +67,7 @@ def fetch_model():
     fs = dvc.api.DVCFileSystem(
         url='https://github.com/remla24-team12/model-training.git',
         rev=artifact['rev'],
-        gdrive_service_account_json_file_path='./remla-team-12-2078257eb673.json',
+        gdrive_service_account_json_file_path='/app/remla-team-12-2078257eb673.json',
         gdrive_use_service_account = 'true'
     )
 
