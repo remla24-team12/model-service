@@ -77,7 +77,7 @@ def fetch_model():
 
     secrets = load_secrets()
 
-
+    print("SEC",secrets)
     
     artifact = dvc.api.artifacts_show(
         'phishing-detection',
