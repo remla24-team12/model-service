@@ -43,6 +43,7 @@ jobs:
 
         cat ./src/remla-team-12-2078257eb673.json
         cat ./src/secrets.json
+        tree
       shell: bash
 
     - name: Set up Docker Buildx
