@@ -75,13 +75,13 @@ def fetch_model():
         print(item)
 
 
-    secrets = load_secrets()
+    # secrets = load_secrets()
 
-    print("SEC",secrets)
+    # print("SEC",secrets)
 
-    secretFile = load_secrets("./src/remla-team-12-2078257eb673.json")
+    # secretFile = load_secrets("./src/remla-team-12-2078257eb673.json")
 
-    print("SEC_FILE",secretFile)
+    # print("SEC_FILE",secretFile)
     
     artifact = dvc.api.artifacts_show(
         'phishing-detection',
@@ -107,10 +107,10 @@ def fetch_model():
 
     fs.get_file(artifact['path'], os.path.join("src","model",os.path.basename(artifact['path'])))
 
-def load_secrets(filename='./src/secrets.json'):
-    with open(filename, 'r') as file:
-        secrets = json.load(file)
-    return secrets
+# def load_secrets(filename='./src/secrets.json'):
+#     with open(filename, 'r') as file:
+#         secrets = json.load(file)
+#     return secrets
 
 
 if __name__ == "__main__":
