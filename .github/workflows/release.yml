@@ -34,13 +34,12 @@ jobs:
           "CLIENT_SECRET": "${{ secrets.CLIENT_SECRET }}"
         }
         EOF
-        echo "${{ secrets.SECRET_FILE_BASE64 }}" | base64 --decode > ./src/remla-team-12-2078257eb673.json
+        echo "${{ secrets.SECRET_FILE }}" > ./src/remla-team-12-2078257eb673.json
         cat ./src/remla-team-12-2078257eb673.json
         ls -a
         ls ./src/ -a
         ls -a
         ls ./src/ -a
-        jq . ./src/remla-team-12-2078257eb673.json
 
         cat ./src/remla-team-12-2078257eb673.json
         cat ./src/secrets.json
