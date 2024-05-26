@@ -61,10 +61,10 @@ def fetch_model():
     """Fetch model and tokenizer from dvc registry"""
 
     # Get the absolute path of the directory containing the current script
-    script_dir = os.path.dirname(os.path.abspath(__file__))
+    # script_dir = os.path.dirname(os.path.abspath(__file__))
 
     # Change the current working directory to the directory of the current script
-    os.chdir(script_dir)
+    # os.chdir(script_dir)
 
     print("Current Working Directory:", os.getcwd())
 
@@ -102,7 +102,7 @@ def fetch_model():
     fs = dvc.api.DVCFileSystem(
         url='https://github.com/remla24-team12/model-training.git',
         rev=artifact['rev'],
-        # config=config
+        config=config
     )
 
     fs.get_file(artifact['path'], os.path.join("src","model",os.path.basename(artifact['path'])))
