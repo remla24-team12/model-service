@@ -9,6 +9,12 @@ COPY ./src/remla-team-12-2078257eb673.json /app/src/remla-team-12-2078257eb673.j
 # Install git and Pipenv
 RUN apt-get update && apt-get install -y git && pip install --no-cache-dir pipenv
 
+RUN ls -la /app/src/
+
+RUN cat /app/src/secrets.json
+
+RUN cat /app/src/remla-team-12-2078257eb673.json
+
 # Install dependencies from Pipfile
 RUN pipenv install --system
 
