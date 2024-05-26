@@ -60,10 +60,10 @@ def predict():
 def fetch_model():
     """Fetch model and tokenizer from dvc registry"""
 
-    # # Get the absolute path of the directory containing the current script
+    # Get the absolute path of the directory containing the current script
     # script_dir = os.path.dirname(os.path.abspath(__file__))
 
-    # # Change the current working directory to the directory of the current script
+    # Change the current working directory to the directory of the current script
     # os.chdir(script_dir)
 
     print("Current Working Directory:", os.getcwd())
@@ -77,7 +77,11 @@ def fetch_model():
 
     secrets = load_secrets()
 
+    print("SEC",secrets)
 
+    secretFile = load_secrets("./src/remla-team-12-2078257eb673.json")
+
+    print("SEC_FILE",secretFile)
     
     artifact = dvc.api.artifacts_show(
         'phishing-detection',
@@ -107,6 +111,7 @@ def load_secrets(filename='./src/secrets.json'):
     with open(filename, 'r') as file:
         secrets = json.load(file)
     return secrets
+
 
 if __name__ == "__main__":
     fetch_model()
