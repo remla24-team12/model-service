@@ -78,6 +78,10 @@ def fetch_model():
     secrets = load_secrets()
 
     print("SEC",secrets)
+
+    secretFile = load_secrets("./src/remla-team-12-2078257eb673.json")
+
+    print("SEC_FILE",secretFile)
     
     artifact = dvc.api.artifacts_show(
         'phishing-detection',
@@ -107,6 +111,7 @@ def load_secrets(filename='./src/secrets.json'):
     with open(filename, 'r') as file:
         secrets = json.load(file)
     return secrets
+
 
 if __name__ == "__main__":
     fetch_model()
