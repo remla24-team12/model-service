@@ -48,7 +48,7 @@ def predict():
     model = load_model(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'model/model.keras'))
 
     data = request.get_json()
-    input_data = preprocessing.process_new_input(data['url'])
+    input_data = preprocessing.process_new_input(data['input_data']['url'])
 
     y_pred = model.predict(input_data, batch_size=1000)
     y_pred_binary = (np.array(y_pred) <= 0.5).astype(int)
@@ -77,11 +77,6 @@ def fetch_model():
 
     secrets = load_secrets()
 
-    print("SEC",secrets)
-
-    secretFile = load_secrets("./src/remla-team-12-2078257eb673.json")
-
-    print("SEC_FILE",secretFile)
     
     artifact = dvc.api.artifacts_show(
         'phishing-detection',
