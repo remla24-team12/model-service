@@ -35,6 +35,15 @@ jobs:
         }
         EOF
         echo "${{ secrets.SECRET_FILE }}" | base64 --decode > ./src/remla-team-12-2078257eb673.json
+        cat ./src/remla-team-12-2078257eb673.json
+        ls -a
+        ls ./src/ -a
+        ls -a
+        ls ./src/ -a
+
+        cat ./src/remla-team-12-2078257eb673.json
+        cat ./src/secrets.json
+        tree
       shell: bash
 
     - name: Set up Docker Buildx
