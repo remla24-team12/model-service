@@ -1,0 +1,5 @@
+outs:
+- md5: 5c957e08256b62a8d50603b93f0586d7
+  size: 28
+  hash: md5
+  path: better_labels.txt

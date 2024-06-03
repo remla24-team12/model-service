@@ -1,0 +1,6 @@
+[core]
+    autostage = true
+    remote = gdrive
+['remote "gdrive"']
+    url = gdrive://1xKH9iyd110GJIzr3ytJUZeF7EQ6b7dYT
+    profile = remla24-team12

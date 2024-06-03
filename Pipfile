@@ -13,8 +13,10 @@ numpy = "==1.26.0"
 tensorflow = "==2.16.1"
 keras = "==3.2.1"
 keras-preprocessing = "==1.1.2"
+prometheus-flask-exporter = "==0.23.0"
 
 [dev-packages]
+requests = "==2.32.3"
 
 [requires]
 python_version = "3.11"
